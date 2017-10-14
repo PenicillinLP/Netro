@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>iGEM 2017 Fudan. Netro</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="Resources/Images/LOGOXhead.png" rel="shortcut icon" type="image/x-icon"/>
+    <link href="Resources/CSS/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="Resources/CSS/button.css" rel="stylesheet" type="text/css"/>
+    <link href="Resources/CSS/Template.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+<script>
+    var _PageHeight = document.documentElement.clientHeight,
+        _PageWidth = document.documentElement.clientWidth;
+    var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+        _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+    var _LoadingHtml = '<div id="loadingDiv" style="position:fixed;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#f3f8ff;opacity:0.8;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: auto; height: 57px; line-height: 57px; padding-left: 10px; padding-right: 10px; border: 2px solid #95B8E7; color: #696969; font-family:\'Arial\';">LOADING...</div></div>';
+    document.write(_LoadingHtml);
+</script>
+
+
+<div id="opacitybar">
+
+</div>
+
+<div id="container">
+
+
+    <div style="float: left; margin-top: 18px; margin-left: 20px">
+        <img src="Resources/Images/LOGOXhead.png" alt="Fudan LOGOhead"
+             name="logo" width="69" border="0"/>
+    </div>
+
+    <div style="border-left: 8px solid #f66200; margin-left: 96px">
+        <h1><span class="titleline">N&epsilon;tro</span><br/>
+            <span class="h1">iGEM 2017</span><span class="h2"> FUDAN</span></h1>
+    </div>
+
+    <table class="tutorial">
+        <tr>
+            <td class="fold">
+                <button class="button button-glow button-rounded button-royal">FOLD</button>
+            </td>
+            <td>
+                <h1 class="texth">
+                    <p>
+                        <span style="font-size: 24px">INTRODUCTION</span>
+                        </br></br>
+                        <span style="font-size: 18px">&larr;</span> Hey! Check out that slider over there!
+                        </br></br>N&epsilon;tro is born to help you design and explore your own gene transcription
+                        network. Most importantly,
+                        you will be able to manipulate the parameters in the model and get the response of the network
+                        in real time.
+                        N&epsilon;tro's running environment is browser, and that's basically all you need. N&epsilon;tro
+                        is designed to be friendly to
+                        all users, and no knowledge about programming is required. Just follow the instructions and have
+                        fun.
+                        </br></br>As is discussed in our Modelling work, there are two potential models to analyze a
+                        gene transcription network,
+                        the Hill Equation Model, and the Probabilistic Model. The former one is easier and more
+                        empirical, while the
+                        later one is more fundamental and rigorous, able to achieve higher flexibility with the cost of
+                        a little bit of simplicity.
+                        In N&epsilon;tro, we choose the Hill Equation Model as our kernel since it has been familiar to
+                        most people for a long time, and
+                        thus might be easier to be understood.
+                        </br></br>A detailed documentation is included bellow for you get familiar with N&epsilon;tro.
+                        N&epsilon;tro will be happy to play with you even if you haven't read the documentation, though. But we
+                        still recommend going through the documentation
+                        so that you will get a more comprehensive understanding of the principles of N&epsilon;tro and
+                        thus become a better friend of it.
+                        Remember to come back to the doc if you get a confusing 'WARNING' while playing. If you meet any
+                        difficulty that is unexplained in the documentation,
+                        please contact us via 15307130257@fudan.edu.cn.
+                        </br></br>Remember we have promised to demonstrate an interesting usage of our old friend,
+                        matrix, previously in our Model? You will see the magic
+                        in the 'Algorithm Uncovered' section at the end of this page.
+                    </p>
+                </h1>
+            </td>
+        </tr>
+    </table>
+
+    <div class="requiredBanner">
+        <!--<img src="Resources/Images/LOGOX.png" alt="Fudan LOGO" name="logo"
+             width="311" border="0"/>-->
+    </div>
+
+    <div class="padding">
+        <div>
+            <h1><span class="headline">Demonstration</span></h1>
+            <video src="http://2017.igem.org/wiki/images/3/30/T--Fudan--Netro_Demonstration.mp4" controls="controls" width="100%"></video>
+        </div>
+    </div>
+
+    <div class="requiredBanner">
+        <!--<img src="Resources/Images/LOGOX.png" alt="Fudan LOGO" name="logo"
+             width="311" border="0"/>-->
+    </div>
+    <div class="padding">
+        <div>
+            <h1><span class="headline">Documentation</span></h1>
+        </div>
+    </div>
+
+    <table class="tutorial">
+        <tr>
+            <td class="unfold">
+                <button class="button button-glow button-rounded button-royal">UNFOLD</button>
+            </td>
+            <td class="hided">
+                <h1 class="texth">
+                    <p>
+                        <span style="font-size: 24px">DOCUMENTATION</span>
+                        </br></br>In this documentation, you will get to know some details of N&epsilon;tro, especially
+                        several rules and error information that you might need to keep in mind.
+                        </br></br>With N&epsilon;tro, you will design your own network first, then you set the values or
+                        ranges of some parameters. The network's property at steady state will be shown at last and ready to be manipulated in real
+                        time. Among them, network design is the most important step of all. So let's start with how to create a proper network.
+                        </br></br>Rule One: don't feed too much!
+                        </br>The network should respond to a single signal, tTa
+                        in our project for example. In N&epsilon;tro, the signal is simply referred to as 'Signal', and cannot be changed. All the
+                        other parts of your network should be controlled by the concentration of Signal, either directly or
+                        indirectly. To analyze a network influenced by more than one signal is beyond the ability of N&epsilon;tro
+                        (It's just a kid!). A 'Network Incomplete' warning will pop out if something in your network is not in the
+                        downstream of Signal.
+                        </br></br>All the other parts of the network is free for you to name. But we will suggest avoid
+                        some special symbols like '<', '>', '$', etc. Simple notations like 'A1', 'LacI', or 'N&epsilon;tro_X' will be the best.
+                        </br></br>Rule Two: hit it where it hurts most!
+                        </br>You need to know what the network is
+                        composed of. And the answer is transcription factors. Put the TFs at the center of your mind and the base of
+                        your network. Make sure you give different TFs different names, even when they are on the same DNA. Take our
+                        project as an example, factor X1, Y and reporter A are attached together, all promoted by tTa, the signal. Then you
+                        should define 'Signal Promote X1', 'Signal Promote Y', 'Signal Promote A'. In this case, the concentrations of
+                        all three substances at steady state will only differ in a multiplier (synthesis rate / decay rate). And since A will
+                        have no effect on other things, you may choose not to define the last one.
+                        </br></br>*Rule Three (Crucial): what goes around doesn't come around, literally!</br>This means
+                        the network cannot be recurrent, or to put it another way, no TF can regulate itself, neither directly nor indirectly. A
+                        recurrent network is very likely to form an unstable system.  Such system could explode, vibrate, or collapse into chaos. Others might own more than one
+                        steady state (attractor) on the phase space.
+                        These situations belong to the field of Dynamic System. Sounds dreadful? N&epsilon;tro agrees!
+                        Anyway, you should avoid creating a
+                        recurrent network. Otherwise, A 'Network Recurrent' warning will pop out.
+                        </br></br>*Rule Four (Crucial again): don't poke your nose into others' business!
+                        </br>This means the network must be orthogonal.
+                        Each TF should have its own target(s) and not bother each other. This does not mean that one TF
+                        can only have one target, because several targets can be put into the same DNA and different DNAs can have the same activator. Meanwhile,
+                        a TF can either promote or repress, a target can either be promoted or be repressed. Otherwise, An 'Overloaded' warning will pop out.
+                        </br></br>Some subtle situations might arise here. For example, you have 'A Promote B', 'B
+                        Promote C', and 'A promote C'.
+                        It is recurrent? Nope. Is anything overloaded? Nope. Yet it is not allowed! Because both A and B
+                        can promote C, they have to be the same TF according to
+                        the orthogonal rule. So that 'A Promote B' is a self-regulating relation, and the 'Network
+                        Recurrent' warning will pop out in such case.
+                        The night is dark and full of terrors, fellows! Be aware!
+                        </br></br>Please note that we do not mean recurrent networks and nonorthogonal networks are not
+                        good. They are widely used on the contrary, and may possess
+                        fascinating properties. The problem here is that a recurrent or nonorthogonal Hamlet could mean
+                        a thousand Hamlets, making it extremely hard to theorize
+                        and generalize. A software capable of analyzing such networks is likely to be much more complex
+                        than N&epsilon;tro, and is against our intention to provide a
+                        easy-to-use tool.
+                        </br></br>Besides this documentation, you can also find a short tutorial in each section.
+                        They will show you what you can do and what might cause errors.
+                        You will definitely get familiar with N&epsilon;tro in less than a minute under their help.
+                        After reading, you could fold them up by clicking the 'FOLD' button for a better view.
+                        </br></br>A software can never be perfect even after thousands of tests. We tried to protect
+                        N&epsilon;tro from all kinds of errors and illegal operations, but bugs could appear where we have
+                        never been searching before. We will appreciate any kind of feedback or even improvement from you.
+                        </br></br>Correspondence: 15307130257@fudan.edu.cn.
+                    </p>
+                </h1>
+            </td>
+        </tr>
+    </table>
+
+    <div class="requiredBanner">
+        <!--<img src="Resources/Images/LOGOX.png" alt="Fudan LOGO" name="logo"
+             width="311" border="0"/>-->
+    </div>
+
+    <div class="padding">
+        <div>
+            <h1><span class="headline">Network Design</span></h1>
+        </div>
+    </div>
+
+    <table class="tutorial">
+        <tr>
+            <td class="fold">
+                <button class="button button-glow button-rounded button-royal">FOLD</button>
+            </td>
+            <td>
+                <h1 class="texth">
+                    <p>
+                        Welcome to N&epsilon;tro! In the following sections of this page, we will guide you step by step
+                        until you get your
+                        own toy to play with. Now let's design the gene transcription network first.
+                        </br></br>You can name the elements in your network as you wish. But keep in mind that N&epsilon;tro is case sensitive
+                        </br></br>Click the
+                        <span class="button-dropdown" data-buttons="dropdown">
+                     <button class="button button-rounded"
+                             style="background-color: rgba(255,51,72,0.78); color: snow;border: 0px solid #999; border-radius: 8px;">
+                         SELECT<i class="fa fa-caret-down"></i>
+                    </button></span>
+                        button to choose the relation between a transcription factor (TF) and its target.
+                        </br></br>Click the
+                        <span>
+                        <button class="button button-glow button-rounded button-caution">&radic;</button>
+                    </span>
+                        button to confirm your design of the corresponding path. A confirmed path will be displayed in
+                        grey.
+                        </br></br>Click
+                        <span>
+                        <button class="button button-glow button-rounded button-caution">?</button>
+                    </span>
+                        if you would like to change something, and
+                        <span>
+                        <button class="button button-glow button-rounded button-caution">χ</button>
+                    </span>
+                        if you want to delete a path.
+                        </br></br>You can add a new path (or a thousand if you like) in your network by clicking
+                        <span>
+                        <button class="button button-glow button-rounded button-royal">ADD</button>
+                    </span>
+                        </br></br>Once you have finished your masterpiece, click
+                        <span>
+                        <button class="button button-glow button-rounded button-royal">CONFIRM</button>
+                    </span>
+                        to confirm the entire network.
+                        </br></br>If N&epsilon;tro feels something wrong in your network, it will warn you with a
+                        <span>
+                        <button class="button button-glow button-rounded button-caution">WARNING:</button>
+                    </span>
+                        Click the warning button and it will return to normal so that you can confirm again (you
+                        should correct your network first).
+                        </br></br>With a real masterpiece, you can move on to the next section, and the confirm button
+                        will turn to
+                        <span>
+                        <button class="button button-glow button-rounded button-caution">REDESIGN</button>
+                    </span>
+                        so that you can create a brand new network at any time.
+                    </p>
+                </h1>
+            </td>
+        </tr>
+    </table>
+
+    <table class="netinput">
+        <tr class="head">
+            <td style="color:#EE0000">Name:TF</td>
+            <td style="color:#EE0000">Relation</td>
+            <td style="color:#EE0000">Name:Target</td>
+        </tr>
+        <tr class="undefined">
+            <td><input type="text" value="Signal" class="signal" disabled="disabled"/></td>
+            <td>
+                <span class="button-dropdown" data-buttons="dropdown">
+                     <button class="button button-rounded"
+                             style="background-color: rgba(255,51,72,0.78); color: snow;border: 0px solid #999; border-radius: 8px;">
+                         SELECT<i class="fa fa-caret-down"></i>
+                    </button>
+                    <ul class="button-dropdown-list">
+                        <li><a style="font-size: 18px; font-weight: 200;">Promote</a></li>
+                        <li class="button-dropdown-divider"><a
+                                style="font-size: 18px; font-weight: 200;">Repress</a></li>
+                    </ul>
+                </span>
+            </td>
+            <td class="name"><input type="text"/></td>
+            <td class="netinputok">
+                <button class="button button-glow button-rounded button-caution" disabled="disabled" id="alwaysdisabled">&radic;</button>
+            </td>
+            <td class="netinputchange">
+                <button class="button button-glow button-rounded button-caution" id="alwayschange">?</button>
+            </td>
+        </tr>
+        <tr class="decideadd">
+            <td class="netinputadd">
+                <button class="button button-glow button-rounded button-royal">ADD</button>
+            </td>
+        </tr>
+        <tr class="decideconfirm">
+            <td class="netinputconfirm">
+                <button class="button button-glow button-rounded button-royal">CONFIRM</button>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="requiredBanner">
+        <!--<img src="Resources/Images/LOGOX.png" alt="Fudan LOGO" name="logo"
+             width="311" border="0"/>-->
+    </div>
+
+    <div class="padding">
+        <div>
+            <h1><span class="headline">Constant Parameters</span></h1>
+        </div>
+    </div>
+
+    <table class="tutorial">
+        <tr>
+            <td class="fold">
+                <button class="button button-glow button-rounded button-royal">FOLD</button>
+            </td>
+            <td>
+                <h1 class="texth">
+                    <p>
+                        The synthesis rate and decay rate of the transcription factors in your network is defined here.
+                        The synthesis rate (Synrate) means the maximum rate of producing that protein. Please note that
+                        its unit is set to be '&mu;M/min'.
+                        The decay rate (Derate) is a factor with unit '/min', indicating the percentage of a protein
+                        that dies in one minute.
+                        So the equation describing the concentration change of a protein X will be:
+                    </p>
+                    <p><span style="text-align: center">d[X]/dt = Synrate * H - Derate * [X]</span></p>
+                    <p>where H is the result of the Hill Equation.
+                    </p>
+                </h1>
+            </td>
+        </tr>
+    </table>
+
+    <table class="paraset">
+        <tr class="start">
+            <td class="parasetconfirm">
+                <button class="button button-glow button-rounded button-caution" style="width: 12cm;">Please Confirm The
+                    Settings Above.
+                </button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="requiredBanner">
+        <!--<img src="Resources/Images/LOGOX.png" alt="Fudan LOGO" name="logo"
+             width="311" border="0"/>-->
+    </div>
+
+    <div class="padding">
+        <div>
+            <h1><span class="headline">Adjustable Parameters</span></h1>
+        </div>
+    </div>
+
+    <table class="tutorial">
+        <tr>
+            <td class="fold">
+                <button class="button button-glow button-rounded button-royal">FOLD</button>
+            </td>
+            <td>
+                <h1 class="texth">
+                    <p>
+                        Now that your network and some required parameters are prepared, N&epsilon;tro is ready
+                        to show you the result. You can confirm all the way to the 'result' section now.
+                        But why the hurry? Here are some other things you might want to customize by your self.
+                        </br></br>N&epsilon;tro provides the powerful ability for you to manipulate the parameters and
+                        get the outcome in real time. You can set the manipulation range of them in this section.
+                        These parameters are listed bellow.
+                        </br></br>Your net work is described by Hill Equations, and a Hill Equation
+                    </p>
+                    <p><span style="text-align: center">H = [Target]^n / (Kd + [Target]^n)  or</span></p>
+                    <p><span style="text-align: center">H = 1 / (Kd + [Target]^n)    </span></p>
+                    <p>contains two parameters, Kd and n. Different Kd's and n's are automatically assigned to each pair of TF-Target.
+                        N&epsilon;tro has already detected the same pair of TF-Target (if exists), and combined them into a single equation.
+                        If this is not like what you have imagined in mind, you'd better check the
+                        design of your network (if confused, the documentation will help you get a better understanding of how N&epsilon;tro works).
+                        </br></br>Please note that these parameters are shown in natural logarithm. There are also default values for them,
+                        with Kd's ranging from -6 to 1, and n's from 1 to 4. You can simply click the confirm button to apply the default setting.
+                        </br></br>If you get a warning, please check if the minimum value is bigger than the maximum, or if the value of n is nonpositive.
+                    </p>
+                </h1>
+            </td>
+        </tr>
+    </table>
+
+    <table class="default">
+        <tr class="start">
+            <td class="rangeconfirm">
+                <button class="button button-glow button-rounded button-caution" style="width: 12cm;">Please Confirm The
+                    Settings Above.
+                </button>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="requiredBanner">
+        <!--<img src="Resources/Images/LOGOX.png" alt="Fudan LOGO" name="logo"
+             width="311" border="0"/>-->
+    </div>
+
+    <div class="padding">
+        <div>
+            <h1><span class="headline">Result</span></h1>
+        </div>
+    </div>
+
+    <table class="tutorial">
+        <tr>
+            <td class="fold">
+                <button class="button button-glow button-rounded button-royal">FOLD</button>
+            </td>
+            <td>
+                <h1 class="texth">
+                    <p>
+                        The final result will be shown in this section, after you set the range of the Signal.
+                        The values should also be in natural logarithm. The default minimum is -6, and the maximum is 1.
+                        </br></br>If you get a warning, please check if the minimum value is bigger than the maximum.
+                    </p>
+                </h1>
+            </td>
+        </tr>
+    </table>
+
+    <table class="result">
+        <tr class="start">
+            <td class="resultconfirm">
+                <button class="button button-glow button-rounded button-caution" style="width: 12cm;">Please Confirm The
+                    Settings Above.
+                </button>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="requiredBanner">
+        <!--<img src="Resources/Images/LOGOX.png" alt="Fudan LOGO" name="logo">-->
+    </div>
+
+    <div class="padding">
+        <div>
+            <h1><span class="headline">Algorithm Uncovered</span></h1>
+        </div>
+    </div>
+
+    <table class="tutorial">
+        <tr>
+            <td class="fold">
+                <button class="button button-glow button-rounded button-royal">FOLD</button>
+            </td>
+            <td>
+                <h1 class="texth">
+                    <p>
+                        Hope you have had good time with N&epsilon;tro.
+                        </br>Now, if you have read the documentation, or have got any warning yourself while designing the network,
+                        you might wonder how does N&epsilon;tro detect those errors, like recurrence? In the video
+                        below, we uncover the algorithm behind N&epsilon;tro. You will find that matrix plays a central rule in
+                        the analysis of a network. Hope you find magic in the beauty of mathematics.
+                        </br>
+                    </p>
+                </h1>
+            </td>
+        </tr>
+    </table>
+
+    <div class="padding">
+        <video src="http://2017.igem.org/wiki/images/3/3f/T--Fudan--Netro_Algoritm.mp4" controls="controls" width="100%"></video>
+    </div>
+
+
+
+    <div class="requiredBanner" style="padding-left: 170px">
+        <img src="Resources/Images/LOGOX.png" alt="Fudan LOGO" name="logo">
+    </div>
+
+    <div class="gap"></div>
+
+</div>
+
+<script type="text/javascript" src="Resources/JS/jquery.min.js"></script>
+<script type="text/javascript" src="Resources/JS/jquery-ui.min.js"></script>
+<script type="text/javascript" src="Resources/JS/d3.min.js"></script>
+<script type="text/javascript" src="Resources/JS/function-plot.js"></script>
+<script type="text/javascript" src="Resources/JS/Kernel.js"></script>
+<script type="text/javascript" src="Resources/JS/buttons.js"></script>
+
+<script>
+    document.onreadystatechange = completeLoading;
+
+    function completeLoading() {
+        $('.hided').hide();
+        if (document.readyState == "complete") {
+            var loadingMask = document.getElementById('loadingDiv');
+            loadingMask.parentNode.removeChild(loadingMask);
+        }
+    }
+</script>
+</body>
+</html>

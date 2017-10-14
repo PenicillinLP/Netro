@@ -1,0 +1,242 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body
+{
+    text-align: left;
+    background-image: url(../Images/Big.jpeg);
+    background-repeat: repeat-y;
+    background-color: #ededed;
+    background-position: center;
+    background-attachment:fixed;
+    margin: auto;
+    padding: 0px;
+    font-family: arial, verdana, helvetica, sans-serif;
+    font-size: 14px;
+    color: #009;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#opacitybar
+{
+    font-family: Arial;
+    font-size: 10px;
+    color: #f66200;
+    float: left;
+    margin-left: 2cm;
+    margin-top: 2cm;
+    position: fixed;
+}
+
+div#container
+{
+    background-color: rgba(256,256,256,1);
+    margin-left: auto;
+    margin-right: auto;
+    width: 50em;
+    text-align: left;
+    border-top: 4px solid #f66200;
+    width:700px;
+}
+.padding
+{
+    margin: 0px;
+    font-size: 12px;
+    color: #EE0000;
+    text-align: left;
+}
+
+.requiredBanner {margin:75px 0px 25px; border-top:4px solid #f66200; padding-top:7px;}
+
+
+.gap {
+    border-bottom:4px solid #f66200;
+}
+
+.actitle {
+    font-size: 20px;
+    color: #ac004b;
+    margin: 20px;
+    padding-top: 2px;
+}
+
+.h1 {
+    font-size: 18px;
+    color: rgb(255, 140, 24);
+    margin-left: 20px;
+}
+.h2 {
+    font-size: 18px;
+    color: #4247a9;
+    margin-left: 5px;
+}
+.texth{
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 14px;
+    color: rgba(70,70,70,1);
+    margin: 20px;
+    border-top: 3px solid #ebebeb;
+    border-bottom: 3px solid #ebebeb;
+    padding-top: 7px;
+    text-align: justify;
+    line-height: 20px;
+}
+.acknowledgement {
+    font-size: 14px;
+    color: #3c3c3c;
+    margin: 20px;
+    padding-top: 0px;
+    text-align: justify;
+    line-height: 20px;
+}
+.headline {
+    font-size: 28px;
+    color: #EE0000;
+    margin: 20px;
+    margin-left: 12px;
+    padding-left: 8px;
+    border-left: 4px solid #f66200;
+    border-top: 2px solid #f66200;
+}
+.titleline {
+    font-size: 28px;
+    color: #ee0000;
+    margin: 20px;
+}
+.codetype {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    color: #000;
+}
+
+
+.head td{
+    padding-left: 8px;
+    color: #ff0000;
+}
+
+.netinput td {
+    color: #990000;
+    font-size: 18px;
+    height: 30px;
+    width: 2.5cm;
+    text-align: left;
+}
+.paraset td {
+    color: #990000;
+    font-size: 18px;
+    height: 30px;
+    width: 4cm;
+    text-align: left;
+}
+.default td {
+    color: #990000;
+    font-size: 18px;
+    height: 30px;
+    width: 5cm;
+    text-align: left;
+}
+.result td {
+    color: #ff0000;
+    font-size: 18px;
+    height: 30px;
+    width: auto;
+    text-align: left;
+}
+.confirmed td{
+    background-color: #999;
+    color: snow;
+    padding-left: 8px;
+    height: 30px;
+    border: 1px #FFFFFF;
+    border-radius: 8px;
+}
+td.netinputdelete, td.netinputchange, td.netinputok {
+    padding-left: 2px;
+    background-color: transparent;
+}
+
+
+
+.paraset td.name {
+    background-color: #999;
+    color: snow;
+    padding-left: 8px;
+    height: 30px;
+    border: 1px #FFFFFF;
+    border-radius: 8px;
+}
+
+
+.defaultpara td{
+    background-color: #999;
+    color: snow;
+    width: 5cm;
+    padding-left: 8px;
+    height: 30px;
+    border: 1px #FFFFFF;
+    border-radius: 8px;
+}
+.range td{
+    background-color: #999;
+    color: snow;
+    width: 5cm;
+    padding-left: 8px;
+    height: 30px;
+    border: 1px #FFFFFF;
+    border-radius: 8px;
+}
+.Srange td{
+    background-color: #999;
+    color: snow;
+    width: 5cm;
+    padding-left: 8px;
+    height: 30px;
+    border: 1px #FFFFFF;
+    border-radius: 8px;
+}
+.range input[type='text'], textarea {
+    background-color: #ffffff;
+    color: #999;
+    width: 2cm;
+    text-align: center;
+    font-family: Arial;
+    font-size: 18px;
+    border: 0px solid #ffffff;
+    border-radius: 8px;
+}
+
+input[type='text']{
+    background-color: #fff;
+    color: #999;
+    border: 0px solid #999;
+    width: 4cm;
+    font-family: Arial;
+    font-size: 18px;
+    border: 2px solid #999;
+    border-radius: 8px;
+}
+
+.confirmed input[type='text'] {
+    background-color: #999;
+    color: snow;
+}
+
+input.signal{
+    background-color: #999;
+    color: snow;
+}
+
+#figure{
+    margin: 0px;
+    font-size: 12px;
+    color: #ff0000;
+    text-align: left;
+}
+
+.gap {
+    padding-top:20px;
+    border-bottom:4px solid #f66200;
+}

@@ -1,5 +1,5 @@
 # Netro
-Netro. Software form Fudan University. iGEM 2017 Team of Fudan.
+Netro. Software form Fudan University. iGEM 2017 Fudan.
 
 Originally created by Yi-Heng Wang (Penicillin) on September 2017.
 
@@ -7,7 +7,7 @@ Correspondence: 15307130257@fudan.edu.cn.
 
 Netro is born in the iGEM competetion in 2017, as part of the project of team Fudan. 
 
-The home page of Netro is: http://2017.igem.org/Team:Fudan/Software. A video tutorial is also available here.
+The home page of Netro is: http://2017.igem.org/Team:Fudan/Software.
 
 You can also explore our iGEM project at: http://2017.igem.org/Team:Fudan.
 
